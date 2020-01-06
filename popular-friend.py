@@ -26,5 +26,5 @@ for i in b:
 r=requests.get(url='https://api.vk.com/method/users.get', params={'user_id': fr ,
 'v': '5.52',
 'access_token': token})
-name=json.loads(r.text)['response']['last_name']+json.loads(r.text)['response']['first_name']
+name=json.loads(r.text)['response'][0]['last_name']+json.loads(r.text)['response'][0]['first_name']
 print(name, frcount)
