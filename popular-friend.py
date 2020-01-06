@@ -20,10 +20,11 @@ for i in b:
     if k>frcount:
         frcount=k
         fr=i
-    time.sleep(1)
+    print(i,'  ',k)
+    time.sleep(10)
 
 r=requests.get(url='https://api.vk.com/method/users.get', params={'user_id': fr ,
 'v': '5.52',
 'access_token': token})
-print(frcount)
-print(r.text)
+name=json.loads(r.text)['response']['last_name']+json.loads(r.text)['response']['first_name']
+print(name, frcount)
